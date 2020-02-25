@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>插值</title>
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 文本 -->
+			<div>{{ msg }}</div>
+			<div v-once>这个将不会改变: {{ msg1 }}</div>
+			<!-- 原始HTML -->
+			<p>使用双大括号：{{ html }}</p>
+			<p>使用v-html指令：<span v-html="html"></span></p>
+			<!-- Attribute -->
+			<button style="width:100px;height:50px;" v-bind:disabled="isButtonDisabled"></button>
+			<p>{{ isButtonDisabled ? '不可点击' : '可点击'}}</p>
+			
+			<!-- 使用 JavaScript 表达式 -->
+			<p>{{ num + 1 }}</p>
+			<p>{{ ok ? 'YES' : 'NO' }}</p>
+			<p>message:{{ message }}</p>
+			<p>message反转：{{ message.split('').reverse().join('') }}</p>
+		</div>	
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg: 'Hello Vue',
+					msg1: 'Hello World',
+					html: '<span style="color:blue"> This should be blue. </span>',
+					isButtonDisabled:true,
+					num:0,
+					ok:true,
+					message:'Hello, I\'m Fanny!'
+				}
+			})
+		</script>
+	</body>
+</html>
